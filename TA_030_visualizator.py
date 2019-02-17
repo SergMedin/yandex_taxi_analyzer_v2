@@ -66,7 +66,7 @@ def data_grouper(data4plot_raw, chart_freq):
     
     data4plot = (
     data4plot_raw
-        .groupby(('trip_desc', pd.Grouper(key='request_datetime', freq=chart_freq)))
+        .groupby(by=['trip_desc', pd.Grouper(key='request_datetime', freq=chart_freq)])
         .aggregate({'price': 'mean'})
         .reset_index()
     )
