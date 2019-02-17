@@ -131,13 +131,29 @@ def plot_weekdays(data4plot, result_path):
     plt.title('Yandex.Taxi price by weekdays: ' + data4plot.trip_desc.values[0])
 
     for weekday in weekdays:
+        if weekday == 0:
+            tmp_label = 'Mon'
+        elif weekday == 1:
+            tmp_label = 'Tue'
+        elif weekday == 2:
+            tmp_label = 'Wed'
+        elif weekday == 3:
+            tmp_label = 'Thu'
+        elif weekday == 4:
+            tmp_label = 'Fri'
+        elif weekday == 5:
+            tmp_label = 'Sat'
+        elif weekday == 6:
+            tmp_label = 'Sun'
+        else:
+            tmp_label = 'unknown'
         data4plot_tmp = data4plot[data4plot.weekday == weekday]
 
         x = data4plot_tmp['time'].values
         y = data4plot_tmp['price'].values
 
         # plot
-        plt.plot(x,y)
+        plt.plot(x,y, label=tmp_label)
 
 
     # Так и не смог запустить, из-за ошибок
@@ -145,7 +161,7 @@ def plot_weekdays(data4plot, result_path):
     #plt.axes[0].xaxis.set_major_locator(hours)
     plt.gcf().autofmt_xdate()
 
-    plt.legend(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], loc='upper left')
+    plt.legend(loc='upper left')
 
     plt.legend()
     plt.savefig(result_path)
