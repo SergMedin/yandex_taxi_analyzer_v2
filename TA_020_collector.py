@@ -27,8 +27,8 @@ COORD_MY_HOME   = '37.74242,55.644689' # марьино
 
 result_path = './data/log/taxi_price_collector_log_{}.json'.format(datetime.now().strftime("%Y%m%d"))
 
-DELAY_MIN = 10
-DELAY_MAX = 30
+DELAY_MIN = 30
+DELAY_MAX = 90
 
 engine = create_engine('sqlite://' + RESULT_PATH, echo=False)
 
