@@ -128,7 +128,7 @@ def plot_weekdays(data4plot, result_path):
 
     plt.xlabel('Time')
     plt.ylabel('Price, rubles')
-    plt.title(s='Yandex.Taxi price by weekdays: ' + data4plot.trip_desc.values[0])
+    plt.title('Yandex.Taxi price by weekdays: ' + data4plot.trip_desc.values[0])
 
     for weekday in weekdays:
         data4plot_tmp = data4plot[data4plot.weekday == weekday]
@@ -159,7 +159,7 @@ def plot_detailed(data4plot, trip_desc, max_date, result_path):
 
     plt.xlabel('Time')
     plt.ylabel('Price, rubles')
-    plt.title(s=data4plot.trip_desc.values[0])
+    plt.title(data4plot.trip_desc.values[0])
 
     for price_column in price_columns:
 
@@ -203,7 +203,7 @@ def plot_general(data4plot, result_path):
 
     plt.xlabel('Time')
     plt.ylabel('Price, rubles')
-    plt.title(s='Yandex.Taxi price')
+    plt.title('Yandex.Taxi price')
 
     for trip in trips:
         
