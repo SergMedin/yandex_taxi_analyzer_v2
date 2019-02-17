@@ -245,7 +245,9 @@ def plot_general(data4plot, result_path):
 
 while True:
     start_date = (datetime.now() - timedelta(days=7*5)).strftime('%Y-%m-%d')
-    end_date = (datetime.now()).strftime('%Y-%m-%d')
+    # Из-за особенностей выгрузки данных из БД (см. запрос)
+    # необходимо чтобы последняя дата выгрузки была на день больше
+    end_date = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
 
     print_log_message('Выгружаем данные за период с {} по {}'.format(start_date, end_date))
 
