@@ -260,7 +260,7 @@ def plot_general(data4plot, result_path):
 # import matplotlib.dates as md
 
 while True:
-    start_date = (datetime.now() - timedelta(days=7*5)).strftime('%Y-%m-%d')
+    start_date = (datetime.now() - timedelta(days=round(7*5.5))).strftime('%Y-%m-%d')
     # Из-за особенностей выгрузки данных из БД (см. запрос)
     # необходимо чтобы последняя дата выгрузки была на день больше
     end_date = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
