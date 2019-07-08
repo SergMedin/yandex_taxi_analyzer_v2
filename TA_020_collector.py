@@ -186,8 +186,15 @@ print_log_message('\n\tКлючи получены:\n\t\tyandexuid:\t{}\n\t\tcsr
 ))
 
 
-
 while True:
+    if random.random() > 0.999:
+        print_log_message('Случайно решили поменять ключи. Перезапрашиваем ключи и пробуем снова...')
+        yandexuid, csrfToken = get_tokens()
+        choose_new_proxy(proxies)
+        print_log_message('\n\tКлючи получены:\n\t\tyandexuid:\t{}\n\t\tcsrfToken:\t{}'.format(
+            yandexuid, csrfToken
+        ))
+        continue
 
     try:
         result_df = get_taxi_data(
@@ -221,8 +228,8 @@ while True:
         ))
         continue
 
-    if random.random() > 0.999:
-        print_log_message('Случайно решили поменять ключи. Перезапрашиваем ключи и пробуем снова...')
+    if 'data.price' not in result_df.columns:
+        print_log_message('API не вернул data.price. Перезапрашиваем ключи и пробуем снова...')
         yandexuid, csrfToken = get_tokens()
         choose_new_proxy(proxies)
         print_log_message('\n\tКлючи получены:\n\t\tyandexuid:\t{}\n\t\tcsrfToken:\t{}'.format(
