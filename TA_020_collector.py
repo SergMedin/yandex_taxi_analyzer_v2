@@ -108,6 +108,7 @@ def get_taxi_data(csrf_token, headers, start_point, start_point_desc, end_point,
     )
     response = requests.get(url=url, headers=headers, proxies={"http": PROXY, "https": PROXY})
     result = response.json()
+    print_log_message(result)
     if result.get('data'):
         result['data'].update(
             {

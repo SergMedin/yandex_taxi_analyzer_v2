@@ -5,10 +5,10 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # загрузить данные из предыдущей версии
-get_ipython().system('scp -r smedintsev@mysrv:/home/smedintsev/projects/taxi_analyser/data/taxi_Yandex_Marino_20181228_2334.json /Users/medintsev/tmp/taxi_Yandex_Marino_20181228_2334_20181229_0137.json')
+# get_ipython().system('scp -r smedintsev@mysrv:/home/smedintsev/projects/taxi_analyser/data/taxi_Yandex_Marino_20181228_2334.json /Users/medintsev/tmp/taxi_Yandex_Marino_20181228_2334_20181229_0137.json')
 
 
-SOURCE_PATH = '/Users/medintsev/tmp/taxi_Yandex_Marino_20181228_2334_20181229_0137.json'
+SOURCE_PATH = '/home/smedintsev/projects/taxi_analyser/data/taxi_Yandex_Marino_20181228_2334.json'
 RESULT_PATH = '/data/yandex.taxi.prices.db'
 
 
